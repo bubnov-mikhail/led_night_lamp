@@ -5,7 +5,7 @@ int ledsCount = 5;
 
 unsigned long timer;
 unsigned long timerRealStart;
-unsigned long fadeInTime = 800000;
+unsigned long fadeInTime = 80000;
 unsigned long fadeIn = 0;
 
 void setup()
@@ -25,7 +25,7 @@ void loop()
   double fadeInMulty = ((double)fadeIn / (double)fadeInTime);
 
   int i;
-  double maxBrightnest = min(128.0, (sin((float)timer / 1500.0) * 64.0) + 128.0);
+  double maxBrightnest = min(128.0, (sin((float)timer / 1500.0) * 128.0) + 128.0);
   for (i = 0; i <= ledsCount; i++) {
     double brightnest = (cos((float)timer / myPinsTimeShipt[i]) * maxBrightnest) + 128.0;
     analogWrite(myPins[i], (int)(brightnest * fadeInMulty));
